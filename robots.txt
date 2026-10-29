@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kutloano.github.io/WEDE5020-PART03/sitemap.xml

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Gogo's Kitchen Food Scheme NGO Kagiso | Our History Since 2018</title>
+<meta name="description" content="Learn about Gogo's Kitchen Food Scheme NGO history from 5 children in 2018 to 200+ beneficiaries today in Kagiso. Meet Gogo Masego and volunteers.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<div class="logo">Gogo's Kitchen NGO</div>
+<button class="hamburger" onclick="toggleMenu()">☰</button>
+<nav id="navLinks" class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="services.html">Our Programmes</a>
+<a href="enquiry.html">Donate / Volunteer</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<main>
+<h1>About Gogo's Kitchen Food Scheme NGO</h1>
+<img src="images/gogo-masego-founder-kagiso-ngo.jpg" alt="Gogo Masego founder of Gogo's Kitchen Food Scheme NGO Kagiso 2018 feeding children" loading="lazy" style="width:100%;max-width:500px;border-radius:10px">
+
+<h2>Our History - From Gate to NGO</h2>
+<p>2018: Gogo Masego (67 years old) saw children in Kagiso Ext 12 coming from school hungry. She started cooking extra pap at her home gate. First day 5 children, second week 20 children. Neighbours brought vegetables. 2019: Local pastor donated pots. 2020 Covid: Fed 50 families during lockdown. 2021: Registered as NPO 123-456. 2022: Got small container kitchen from municipality. 2024: Now feeding 200+ per week with 5 volunteer gogos, 3 youth drivers. All work unpaid. Location: 123 Kagiso Ext 12, opposite primary school.</p>
+
+<h2>Our Mission</h2>
+<p>To ensure no child or elderly person in Kagiso sleeps hungry. To restore dignity through nutritious home-cooked meals, not handouts. To empower local women with cooking and management skills. Core values: Ubuntu, transparency, community ownership.</p>
+
+<h2>Our Team</h2>
+<ul>
+<li><b>Gogo Masego - Founder:</b> 70 years old, 40 years cooking experience</li>
+<li><b>Mama Nthabi - Head Cook:</b> Volunteer since 2019, manages 50kg pap daily</li>
+<li><b>Thabo - Youth Coordinator:</b> Manages beneficiary registration and deliveries</li>
+<li><b>5 Volunteer Gogos + 10 Youth Volunteers</b></li>
+</ul>
+
+<h2>Where We Work</h2>
+<p>We serve Kagiso Ext 12, Ext 8, Tshepisong. Beneficiaries walk or are delivered to. We source meat from Kagiso Butchery, vegetables from Kagiso farmers market to support local economy. Open Monday-Friday 11am-3pm, Saturday food parcel packing 9am-12pm.</p>
+
+<div class="gallery">
+<img src="images/gallery1-kagiso-feeding.jpg" alt="Children eating at Gogo's Kitchen food scheme Kagiso gallery 1" onclick="openLightbox(this.src)">
+<img src="images/gallery2-volunteers.jpg" alt="Volunteers cooking pap at NGO kitchen gallery 2" onclick="openLightbox(this.src)">
+<img src="images/gallery3-food-parcel.jpg" alt="Elderly receiving food parcel from Gogo's Kitchen NGO gallery 3" onclick="openLightbox(this.src)">
+</div>
+<div id="lightbox" class="lightbox" onclick="this.style.display='none'"><span class="close">&times;</span><img id="lightbox-img" src=""></div>
+
+</main>
+<footer><p>Gogo's Kitchen Food Scheme NGO | NPO 123-456</p></footer>
+<script src="js/script.js"></script>
+<script>
+function openLightbox(src){document.getElementById('lightbox').style.display='flex';document.getElementById('lightbox-img').src=src;}
+</script>
+</body>
+</html>

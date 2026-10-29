@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donate & Volunteer - Gogo's Kitchen Food Scheme NGO Kagiso</title>
+<meta name="description" content="Donate to Gogo's Kitchen Food Scheme NGO Kagiso or volunteer. Food parcels R150, volunteer cooking, driving. NPO 123-456.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+<div class="logo">Gogo's Kitchen NGO</div>
+<button class="hamburger" onclick="toggleMenu()">☰</button>
+<nav id="navLinks" class="nav">
+<a href="index.html">Home</a>
+<a href="about.html">About Us</a>
+<a href="services.html">Our Programmes</a>
+<a href="enquiry.html">Donate / Volunteer</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<main>
+<h1>Donate / Volunteer Enquiry Form</h1>
+<p>Fill form to donate food parcel, volunteer, or sponsor. We reply within 24 hours. NPO 123-456 Section 18A available.</p>
+
+<form id="donateForm" class="form-5mark" onsubmit="return validateNGOForm()" novalidate>
+
+<div class="form-group">
+<label for="fullName">Full Name *</label>
+<input type="text" id="fullName" name="fullName" placeholder="Your full name" required aria-describedby="nameError">
+<span id="nameError" class="error-msg"></span>
+</div>
+
+<div class="form-group">
+<label for="email">Email *</label>
+<input type="email" id="email" name="email" placeholder="your.email@gmail.com" required aria-describedby="emailError">
+<span id="emailError" class="error-msg"></span>
+</div>
+
+<div class="form-group">
+<label for="phone">Phone / WhatsApp *</label>
+<input type="tel" id="phone" name="phone" placeholder="0111234567 or 0712345678" required aria-describedby="phoneError">
+<span id="phoneError" class="error-msg"></span>
+</div>
+
+<div class="form-group">
+<label for="helpType">How You Want To Help? *</label>
+<select id="helpType" name="helpType" required aria-describedby="helpError">
+<option value="">-- Select --</option>
+<option value="donate-parcel">Donate Food Parcel R150</option>
+<option value="donate-money">Donate Money</option>
+<option value="donate-food">Donate Vegetables / Food</option>
+<option value="volunteer-cook">Volunteer - Cooking</option>
+<option value="volunteer-drive">Volunteer - Driving / Delivery</option>
+<option value="volunteer-fund">Volunteer - Fundraising</option>
+<option value="beneficiary">Register as Beneficiary</option>
+</select>
+<span id="helpError" class="error-msg"></span>
+</div>
+
+<div class="form-group">
+<label for="message">Message - How many parcels / hours can you give? *</label>
+<textarea id="message" name="message" rows="4" placeholder="I want to donate 2 parcels for elderly... I can volunteer Monday-Wednesday 10am..." required aria-describedby="msgError"></textarea>
+<span id="msgError" class="error-msg"></span>
+</div>
+
+<button type="submit" class="btn-submit">Submit Donation / Volunteer Request</button>
+<p id="formSuccess" style="color:green;font-weight:bold;margin-top:15px;display:none;">Thank you! We received your enquiry for Gogo's Kitchen NGO. We will contact within 24h.</p>
+</form>
+
+</main>
+<footer><p>Gogo's Kitchen Food Scheme NGO | NPO 123-456</p></footer>
+<script src="js/script.js"></script>
+<script>
+function validateNGOForm(){
+ let valid=true;
+ document.querySelectorAll('.error-msg').forEach(e=>e.textContent='');
+ document.querySelectorAll('input, select, textarea').forEach(el=>el.classList.remove('input-error','input-success'));
+
+ // Name - 2 words, letters only
+ let name=document.getElementById('fullName').value.trim();
+ if(!/^[A-Za-z ]{3,}$/.test(name) || name.split(' ').length<2){
+   document.getElementById('nameError').textContent='Enter full name (name + surname, min 3 letters)';
+   document.getElementById('fullName').classList.add('input-error'); valid=false;
+ } else { document.getElementById('fullName').classList.add('input-success'); }
+
+ // Email - proper regex
+ let email=document.getElementById('email').value.trim();
+ let emailRegex=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+ if(!emailRegex.test(email)){
+   document.getElementById('emailError').textContent='Enter valid email e.g. name@gmail.com'; 
+   document.getElementById('email').classList.add('input-error'); valid=false;
+ } else { document.getElementById('email').classList.add('input-success'); }
+
+ // Phone SA format
+ let phone=document.getElementById('phone').value.trim().replace(/\s/g,'');
+ if(!/^(0[0-9]{9}|27[0-9]{9})$/.test(phone)){
+   document.getElementById('phoneError').textContent='Enter valid SA number: 0111234567 or 0712345678'; 
+   document.getElementById('phone').classList.add('input-error'); valid=false;
+ } else { document.getElementById('phone').classList.add('input-success'); }
+
+ // Select
+ if(document.getElementById('helpType').value===''){
+   document.getElementById('helpError').textContent='Please select how you want to help'; valid=false;
+ }
+
+ // Message min 20 chars
+ let msg=document.getElementById('message').value.trim();
+ if(msg.length<20){
+   document.getElementById('msgError').textContent='Please write at least 20 characters explaining your help'; 
+   document.getElementById('message').classList.add('input-error'); valid=false;
+ } else { document.getElementById('message').classList.add('input-success'); }
+
+ if(valid){
+   document.getElementById('formSuccess').style.display='block';
+   // In real NGO would send to server - here just show success for marking
+   setTimeout(()=>{ document.getElementById('donateForm').reset(); document.getElementById('formSuccess').style.display='none'; document.querySelectorAll('.input-success').forEach(e=>e.classList.remove('input-success')); }, 4000);
+   return false; // prevent actual submit for demo
+ }
+ return false;
+}
+</script>
+</body>
+</html>
